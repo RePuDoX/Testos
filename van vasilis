@@ -1,0 +1,31 @@
+import random
+from colorama import Fore
+lista = []
+list_feedback = []
+lista_F =[]
+getal_gr_50 = 0
+for i in range(0,20):
+    x = random.randrange(1,100)
+    if x > 50:
+        getal_gr_50 += 1
+    if x>=0 and x<=30:
+        lista.append(Fore.RED + str(x) +Fore.RESET)
+        list_feedback.append(Fore.RED +"real failure" +Fore.RESET)
+    elif x>=31 and x<=49:
+        lista.append(Fore.YELLOW + str(x)+Fore.RESET)
+        list_feedback.append(Fore.YELLOW +"failure" +Fore.RESET)
+    elif x>=50 and x<=75:
+        lista.append(Fore.BLUE + str(x)+Fore.RESET)
+        list_feedback.append(Fore.BLUE +"succeed" +Fore.RESET)
+    else:
+        lista.append(Fore.GREEN + str(x)+Fore.RESET)
+        list_feedback.append(Fore.GREEN +"congratulation"+Fore.RESET)
+
+for getal in lista:
+    print(getal)
+print("aantal getallen groter dan 50",getal_gr_50)
+
+
+lista_F = zip(lista,list_feedback)
+for i,j in lista_F:
+    print(i,j)
